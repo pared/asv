@@ -481,7 +481,7 @@ def detect_regressions(steps, threshold=0, min_size=2):
     last_v = steps[-1][2]
     best_v = last_v
     best_err = steps[-1][4]
-    prev_l = None
+    prev_l = steps[-1][0]
     short_prev = None
 
     # Find upward steps that resulted to worsened value afterward
@@ -501,10 +501,10 @@ def detect_regressions(steps, threshold=0, min_size=2):
                 best_v, best_err = short_prev
             short_prev = None
 
-        prev_l = l
         if cur_v < best_v:
             best_v = cur_v
             best_err = cur_err
+            prev_l = l
 
     regression_pos.reverse()
 

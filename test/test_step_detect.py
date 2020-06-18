@@ -281,7 +281,7 @@ def test_l1dist(use_rangemedian):
 def test_regression_threshold_custom():
     steps = [(0, 1,   1.0, 1.0, 0.0),
              (1, 2,   2, 2, 0.0),
-             (2, 3,   1.5, 1.5, 0.0),]
+             (2, 3,   1.5, 1.5, 0.0)]
 
     latest, best, pos = detect_regressions(steps, threshold=0.05)
     assert pos == [(0, 2, 1.0, 1.5)]
